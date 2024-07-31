@@ -4,10 +4,13 @@ import io
 import pandas as pd
 import requests
 
+load_dotenv()
+API_KEY = os.getenv("HUGGINGFACE_API_KEY")
+
 # Hugging Face API details
 API_URL_GENDER = "https://api-inference.huggingface.co/models/rizvandwiki/gender-classification"
 API_URL_DETECTOR = "https://api-inference.huggingface.co/models/umm-maybe/AI-image-detector"
-headers = {"Authorization": "Bearer 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"}
+headers = {"Authorization": f"Bearer {API_KEY}"}
 
 def query_gender(image):
     # Convert image to JPEG format
