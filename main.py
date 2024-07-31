@@ -86,7 +86,7 @@ def ai_image_detector():
         if result:
             # Convert result to DataFrame for table display
             df = pd.DataFrame(result)
-            st.write("API Response:")
+            st.write("API Response:", result.status_code)
             st.table(df)
 
             # Determine the label with the highest score
@@ -126,7 +126,7 @@ def is_artificial_detector():
                     break
 
             if is_artificial:
-                st.write("The image may be artificially generated.")
+                st.write("The image is artificially generated.")
             else:
                 st.write("The image is likely human.")
         else:
@@ -145,6 +145,10 @@ def main():
         ai_image_detector()
     elif selection == "Is Image Artificial?":
         is_artificial_detector()
+    
+    # Add a footer
+    st.markdown("---")
+    st.markdown("Made by Srikanth")
 
 if __name__ == "__main__":
     main()
