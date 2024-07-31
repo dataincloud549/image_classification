@@ -3,11 +3,13 @@ from PIL import Image
 import io
 import pandas as pd
 import requests
+from dotenv import load_dotenv
+import os
 
 load_dotenv()
 API_KEY = os.getenv("HUGGINGFACE_API_KEY")
 
-# Hugging Face API details
+    # Hugging Face API details
 API_URL_GENDER = "https://api-inference.huggingface.co/models/rizvandwiki/gender-classification"
 API_URL_DETECTOR = "https://api-inference.huggingface.co/models/umm-maybe/AI-image-detector"
 headers = {"Authorization": f"Bearer {API_KEY}"}
@@ -131,6 +133,7 @@ def is_artificial_detector():
             st.write("Failed to get a valid response from the API.")
 
 def main():
+
     st.set_page_config(page_title="AI Image Tools", page_icon=":robot:")
 
     st.sidebar.title("Navigation")
